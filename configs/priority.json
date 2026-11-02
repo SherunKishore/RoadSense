@@ -1,0 +1,48 @@
+{
+  "_about": "Module 5 repair-priority rules (transparent, adjustable heuristics based on common road-maintenance practice; see docs/MODULES.md).",
+  "grouping": {
+    "_about": "A location = GPS cluster (records within radius_m), else a video time window, else a single photo.",
+    "radius_m": 25,
+    "video_window_s": 5
+  },
+  "score": {
+    "_about": "priority score = (worst severity score + density bonus + safety bonus) * road factor, capped at 100",
+    "density_bonus_per_extra": 4,
+    "density_bonus_max": 15,
+    "pothole_safety_bonus": 8
+  },
+  "road_factor": {"highway": 1.2, "arterial": 1.1, "local": 0.9, "unknown": 1.0},
+  "levels": [
+    {"level": "P1", "name": "Urgent", "min_score": 75, "deadline": "within 48 hours"},
+    {"level": "P2", "name": "High", "min_score": 55, "deadline": "within 7 days"},
+    {"level": "P3", "name": "Medium", "min_score": 35, "deadline": "within 30 days"},
+    {"level": "P4", "name": "Routine", "min_score": 0, "deadline": "next maintenance cycle"}
+  ],
+  "overrides": {
+    "_about": "A (type, severity) pair forces at least this priority level.",
+    "D40_Pothole": {"High": "P1", "Medium": "P2"},
+    "D20_Alligator_Crack": {"High": "P2"}
+  },
+  "actions": {
+    "D40_Pothole": {
+      "Low": "Monitor; fill with cold-mix asphalt during routine maintenance",
+      "Medium": "Patch pothole: clean, tack coat, fill with hot/cold-mix asphalt, compact",
+      "High": "Make safe immediately (cones/warning), then full-depth hot-mix patch"
+    },
+    "D20_Alligator_Crack": {
+      "Low": "Monitor; surface seal (slurry/chip seal) at next cycle",
+      "Medium": "Skin patch or surface treatment over the cracked area",
+      "High": "Full-depth patch; investigate base, subgrade and drainage"
+    },
+    "D10_Transverse_Crack": {
+      "Low": "Monitor",
+      "Medium": "Rout and seal the crack",
+      "High": "Rout and seal; inspect for base or joint failure"
+    },
+    "D00_Longitudinal_Crack": {
+      "Low": "Monitor",
+      "Medium": "Rout and seal the crack",
+      "High": "Rout and seal; check edge support and drainage"
+    }
+  }
+}

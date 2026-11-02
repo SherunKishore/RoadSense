@@ -1,0 +1,10 @@
+# rdd4_gde: guided-filter detail enhancement {'r': 8, 'eps': 0.01, 'k': 2.0, 'clahe': False}
+path: data/rdd4_gde
+train: train/images
+val: val/images
+test: test/images
+names:
+  0: D00_Longitudinal_Crack
+  1: D10_Transverse_Crack
+  2: D20_Alligator_Crack
+  3: D40_Pothole

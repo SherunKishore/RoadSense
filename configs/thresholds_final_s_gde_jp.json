@@ -1,0 +1,6 @@
+{
+  "D00_Longitudinal_Crack": 0.049,
+  "D10_Transverse_Crack": 0.064,
+  "D20_Alligator_Crack": 0.075,
+  "D40_Pothole": 0.055
+}

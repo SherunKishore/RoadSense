@@ -1,0 +1,415 @@
+{
+ "_about": "RoadSense ensemble settings, written by scripts/tune_ensemble.py --split val (India + Japan val). Thresholds apply to the fused WBF score; calibration maps that score to the share of such boxes that were real damage on val (IoU >= 0.5).",
+ "members": [
+  "india_japan",
+  "gia_cdsa",
+  "plain_s"
+ ],
+ "member_min_conf": 0.02,
+ "wbf_iou": 0.45,
+ "thresholds": {
+  "D00_Longitudinal_Crack": 0.128,
+  "D10_Transverse_Crack": 0.112,
+  "D20_Alligator_Crack": 0.174,
+  "D40_Pothole": 0.109
+ },
+ "default_score": 0.131,
+ "reference": {
+  "model": "india_japan",
+  "thresholds": {
+   "D00_Longitudinal_Crack": 0.236,
+   "D10_Transverse_Crack": 0.217,
+   "D20_Alligator_Crack": 0.366,
+   "D40_Pothole": 0.218
+  }
+ },
+ "calibration": {
+  "D00_Longitudinal_Crack": {
+   "score": [
+    0.0,
+    0.0067,
+    0.0072,
+    0.0134,
+    0.0166,
+    0.0198,
+    0.0268,
+    0.0476,
+    0.0569,
+    0.0693,
+    0.0798,
+    0.1014,
+    0.1234,
+    0.1281,
+    0.1357,
+    0.1507,
+    0.1666,
+    0.1967,
+    0.1986,
+    0.2284,
+    0.3252,
+    0.6825,
+    0.7612,
+    1.0
+   ],
+   "precision": [
+    0.0097,
+    0.0097,
+    0.0258,
+    0.0342,
+    0.0556,
+    0.0521,
+    0.0571,
+    0.0616,
+    0.1022,
+    0.1111,
+    0.1544,
+    0.1905,
+    0.2273,
+    0.2647,
+    0.2766,
+    0.3036,
+    0.3151,
+    0.5,
+    0.5778,
+    0.6333,
+    0.7606,
+    0.8571,
+    0.8571,
+    0.8571
+   ],
+   "boxes": 2450
+  },
+  "D10_Transverse_Crack": {
+   "score": [
+    0.0,
+    0.0067,
+    0.0068,
+    0.0082,
+    0.0161,
+    0.0356,
+    0.0432,
+    0.0554,
+    0.0587,
+    0.0696,
+    0.0951,
+    0.101,
+    0.1125,
+    0.1263,
+    0.1333,
+    0.1562,
+    0.2138,
+    0.2384,
+    0.2996,
+    0.3064,
+    0.4857,
+    0.6248,
+    0.7078,
+    1.0
+   ],
+   "precision": [
+    0.0556,
+    0.0556,
+    0.0165,
+    0.0404,
+    0.0512,
+    0.0769,
+    0.1006,
+    0.1212,
+    0.1207,
+    0.1514,
+    0.1951,
+    0.2593,
+    0.3333,
+    0.3548,
+    0.3565,
+    0.495,
+    0.6377,
+    0.6421,
+    0.6667,
+    0.8068,
+    0.8095,
+    0.8571,
+    0.8571,
+    0.8571
+   ],
+   "boxes": 2386
+  },
+  "D20_Alligator_Crack": {
+   "score": [
+    0.0,
+    0.0067,
+    0.0067,
+    0.0076,
+    0.0226,
+    0.0258,
+    0.0378,
+    0.0478,
+    0.0503,
+    0.0815,
+    0.1152,
+    0.116,
+    0.1744,
+    0.2069,
+    0.2361,
+    0.2899,
+    0.2974,
+    0.5196,
+    0.5419,
+    0.7179,
+    0.8218,
+    1.0
+   ],
+   "precision": [
+    0.1429,
+    0.1429,
+    0.0145,
+    0.023,
+    0.0556,
+    0.0601,
+    0.0686,
+    0.0851,
+    0.1137,
+    0.1258,
+    0.2857,
+    0.3103,
+    0.3774,
+    0.5294,
+    0.6,
+    0.7,
+    0.7559,
+    0.7333,
+    0.8857,
+    0.9811,
+    0.9811,
+    0.9811
+   ],
+   "boxes": 2197
+  },
+  "D40_Pothole": {
+   "score": [
+    0.0,
+    0.0067,
+    0.0068,
+    0.0099,
+    0.0165,
+    0.0291,
+    0.03,
+    0.0394,
+    0.0496,
+    0.0664,
+    0.0729,
+    0.0837,
+    0.0873,
+    0.1087,
+    0.1333,
+    0.1363,
+    0.1577,
+    0.1959,
+    0.2375,
+    0.2867,
+    0.3637,
+    0.372,
+    0.3827,
+    0.6483,
+    0.7671,
+    1.0
+   ],
+   "precision": [
+    0.05,
+    0.05,
+    0.0172,
+    0.0327,
+    0.0407,
+    0.0741,
+    0.069,
+    0.0847,
+    0.1095,
+    0.1449,
+    0.1573,
+    0.1818,
+    0.1792,
+    0.2784,
+    0.3846,
+    0.4744,
+    0.5,
+    0.5238,
+    0.6207,
+    0.6889,
+    0.7143,
+    0.75,
+    0.8462,
+    0.9167,
+    0.9167,
+    0.9167
+   ],
+   "boxes": 2340
+  }
+ },
+ "quality": {
+  "min_brightness": 62.2,
+  "max_brightness": 164.2,
+  "min_sharpness": 28.4,
+  "min_side": 360,
+  "_about": "0.5th / 99.5th percentiles of the India + Japan val photos (all usable road photos)."
+ },
+ "metrics": [
+  [
+   "India+Japan val",
+   0.492,
+   0.193
+  ],
+  [
+   "India+Japan test",
+   0.5001,
+   0.1945
+  ],
+  [
+   "India test",
+   0.3709,
+   0.1467
+  ],
+  [
+   "Japan test",
+   0.4778,
+   0.1931
+  ]
+ ],
+ "val": {
+  "ensemble": {
+   "images": 1507,
+   "mAP50": 0.492,
+   "mAP50-95": 0.193,
+   "mean_best_f1": 0.5425,
+   "per_class_mAP50": {
+    "D00_Longitudinal_Crack": 0.4008,
+    "D10_Transverse_Crack": 0.5275,
+    "D20_Alligator_Crack": 0.606,
+    "D40_Pothole": 0.4335
+   },
+   "at_thresholds": {
+    "per_class": {
+     "D00_Longitudinal_Crack": {
+      "precision": 0.4842,
+      "recall": 0.4564,
+      "f1": 0.4699,
+      "gt": 436
+     },
+     "D10_Transverse_Crack": {
+      "precision": 0.5322,
+      "recall": 0.6242,
+      "f1": 0.5745,
+      "gt": 596
+     },
+     "D20_Alligator_Crack": {
+      "precision": 0.7042,
+      "recall": 0.5456,
+      "f1": 0.6149,
+      "gt": 493
+     },
+     "D40_Pothole": {
+      "precision": 0.5378,
+      "recall": 0.4852,
+      "f1": 0.5102,
+      "gt": 542
+     }
+    },
+    "precision": 0.5646,
+    "recall": 0.5278,
+    "f1": 0.5424
+   },
+   "image_level": {
+    "damaged_photos": 826,
+    "clean_photos": 681,
+    "damaged_flagged": 0.891,
+    "clean_false_alarm": 0.116,
+    "clean_correct": 0.884,
+    "photo_accuracy": 0.8879,
+    "right_type_when_flagged": 0.981
+   }
+  },
+  "bsw_alone": {
+   "images": 1507,
+   "mAP50": 0.4707,
+   "mAP50-95": 0.1906,
+   "mean_best_f1": 0.5155,
+   "per_class_mAP50": {
+    "D00_Longitudinal_Crack": 0.3675,
+    "D10_Transverse_Crack": 0.5329,
+    "D20_Alligator_Crack": 0.5781,
+    "D40_Pothole": 0.4041
+   },
+   "at_thresholds": {
+    "per_class": {
+     "D00_Longitudinal_Crack": {
+      "precision": 0.445,
+      "recall": 0.4174,
+      "f1": 0.4308,
+      "gt": 436
+     },
+     "D10_Transverse_Crack": {
+      "precision": 0.5529,
+      "recall": 0.5872,
+      "f1": 0.5696,
+      "gt": 596
+     },
+     "D20_Alligator_Crack": {
+      "precision": 0.7225,
+      "recall": 0.5071,
+      "f1": 0.5959,
+      "gt": 493
+     },
+     "D40_Pothole": {
+      "precision": 0.5319,
+      "recall": 0.4151,
+      "f1": 0.4663,
+      "gt": 542
+     }
+    },
+    "precision": 0.5631,
+    "recall": 0.4817,
+    "f1": 0.5156
+   },
+   "image_level": {
+    "damaged_photos": 826,
+    "clean_photos": 681,
+    "damaged_flagged": 0.8632,
+    "clean_false_alarm": 0.0837,
+    "clean_correct": 0.9163,
+    "photo_accuracy": 0.8872,
+    "right_type_when_flagged": 0.9734
+   }
+  },
+  "wbf_trials": {
+   "0.45": {
+    "mAP50": 0.492,
+    "mAP50-95": 0.193,
+    "mean_best_f1": 0.5425
+   },
+   "0.5": {
+    "mAP50": 0.4947,
+    "mAP50-95": 0.1961,
+    "mean_best_f1": 0.5423
+   },
+   "0.55": {
+    "mAP50": 0.4974,
+    "mAP50-95": 0.1992,
+    "mean_best_f1": 0.5404
+   },
+   "0.6": {
+    "mAP50": 0.497,
+    "mAP50-95": 0.2013,
+    "mean_best_f1": 0.5398
+   },
+   "0.65": {
+    "mAP50": 0.4969,
+    "mAP50-95": 0.2046,
+    "mean_best_f1": 0.5349
+   }
+  }
+ },
+ "tuned": "2026-10-21",
+ "test": {
+  "date": "2026-10-21",
+  "file": "runs/ensemble/test.json"
+ }
+}

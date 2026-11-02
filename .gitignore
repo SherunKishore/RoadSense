@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Datasets and downloads (not distributed; see README)
+data/
+downloads/
+RDD_SPLIT/
+
+# Training outputs, except the three models the website uses and the saved results
+runs/*
+!runs/bench_models.json
+!runs/ensemble/
+runs/ensemble/*.pkl
+!runs/final_bsw_s/
+!runs/gdgf_gia_cdsa_s/
+!runs/abl2_a0_base/
+runs/final_bsw_s/*
+runs/gdgf_gia_cdsa_s/*
+runs/abl2_a0_base/*
+!runs/final_bsw_s/weights/
+!runs/gdgf_gia_cdsa_s/weights/
+!runs/abl2_a0_base/weights/
+runs/*/weights/last.pt
+*.pt
+!runs/*/weights/best.pt
+
+# Website runtime data, accounts and certificates
+website/data/
+website/certs/
+website/dev_accounts.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

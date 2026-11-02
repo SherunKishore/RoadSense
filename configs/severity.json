@@ -1,0 +1,36 @@
+{
+  "_about": "Module 4 severity rules. RDD2022 has no severity labels, so these are transparent, adjustable heuristics in the spirit of pavement condition surveys (distress type x extent), not a trained model. See docs/MODULES.md.",
+  "type_weight": {
+    "_about": "How serious each damage type is at full extent (potholes: safety + structural; alligator: structural fatigue; linear cracks: water ingress)",
+    "D00_Longitudinal_Crack": 0.65,
+    "D10_Transverse_Crack": 0.70,
+    "D20_Alligator_Crack": 0.85,
+    "D40_Pothole": 1.00
+  },
+  "extent": {
+    "_about": "Area-type damage uses box area / image area, linear cracks use box length / image size, both after perspective correction. Extent = log-scale position between that type's 10th and 95th percentile size in the India+Japan TRAINING labels (calibrated 2026-10-01), so a median-sized damage gets ~0.4 and only unusually large damage reaches 1.",
+    "area_classes": ["D20_Alligator_Crack", "D40_Pothole"],
+    "ranges": {
+      "D00_Longitudinal_Crack": [0.147, 1.0637],
+      "D10_Transverse_Crack": [0.1918, 1.452],
+      "D20_Alligator_Crack": [0.0508, 1.952],
+      "D40_Pothole": [0.0066, 0.3515]
+    }
+  },
+  "perspective": {
+    "_about": "Dashcam view: damage higher in the frame is farther away and looks smaller. Linear size is scaled by (H - horizon) / (y_centre - horizon), clamped to [1, max_factor]. horizon 0.45 = fraction of image height, estimated from India training boxes (1% of boxes start above 0.38, 5% above 0.52).",
+    "horizon": 0.45,
+    "max_factor": 4.0,
+    "models": {"india_japan": true, "gia_cdsa": true, "plain_s": true, "ensemble": true, "china": false, "usc_rddc2020": true}
+  },
+  "score": {
+    "_about": "score = 100 * type_weight * (base + (1 - base) * extent) * (conf_floor + (1 - conf_floor) * confidence)",
+    "base": 0.30,
+    "conf_floor": 0.60
+  },
+  "levels": {"medium": 35, "high": 60},
+  "condition": {
+    "_about": "Per-image condition index 0-100 (100 = no visible damage) = 100 * prod(1 - decay * score / 100). A heuristic proxy, not a PCI measurement.",
+    "decay": 0.6
+  }
+}

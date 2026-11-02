@@ -1,0 +1,28 @@
+{
+ "YOLO11s": {
+  "params_M": 9.41,
+  "gflops_thop": 21.4,
+  "gflops_torch": 21.4,
+  "cpu_fp32_ms": 120.6,
+  "gpu_fp16_ms": 7.2
+ },
+ "GGC-YOLO": {
+  "params_M": 9.67,
+  "gflops_thop": 22.3,
+  "gflops_torch": 22.3,
+  "cpu_fp32_ms": 137.0,
+  "gpu_fp16_ms": 9.5
+ },
+ "BSW-YOLO11s": {
+  "params_M": 11.48,
+  "gflops_thop": 24.2,
+  "gflops_torch": 24.3,
+  "cpu_fp32_ms": 183.3,
+  "gpu_fp16_ms": 12.4
+ },
+ "_setup": {
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "torch": "2.13.0+cu126",
+  "threads": 6
+ }
+}
